@@ -1,0 +1,47 @@
+<ion-header-bar align-title="center" class="bar-dark">
+  <img ng-src="images/wd.jpg" alt="wd_logo"/>
+  <h3 class="title">购物车</h3>
+  <button ng-click="toggleEdit()" class="button button-balanced">编辑</button>
+</ion-header-bar>
+<ion-content class="has-header has-footer">
+  <div class="shopping_name">
+  <h4>Jay二呆子铺&gt;&gt;</h4>
+  </div>
+ <div class="list cart_list">
+  <div class="item" ng-repeat="dish in cart">
+    <div class="row">
+      <div class="col">
+        <img class="img-responsive" ng-src="images/{{dish.img_sm}}" alt=""/>
+      </div>
+      <div class="col" ng-hide="editEnable">
+       <h3>{{dish.name}}</h3>
+        <p>{{dish.price+"x"+dish.dishCount}}</p>
+      </div>
+      <div class="col" ng-show="editEnable">
+        <button class="button button-small button-assertive" ng-click="minus($index)">-</button>
+        {{dish.dishCount}}
+        <button class="button button-small button-assertive" ng-click="add($index)">+</button>
+      </div>
+    </div>
+  </div>
+   <div class="item text-right">
+     <p style="display: inline-block;vertical-align:middle">合计:{{sumAll()}}</p>
+     <button
+       ng-click="jumpToOrder()"
+       style="display: inline-block;vertical-align:middle"
+       class="button button-small button-balanced">
+       我要下单
+     </button>
+     <button
+       ng-click="jump('wdMain')"
+       style="display: inline-block;vertical-align:middle"
+       class="button button-small button-balanced">
+       我再看看
+     </button>
+   </div>
+
+
+</div>
+</ion-content>
+
+<div ng-include="'tpl/include/footer.html'"></div>

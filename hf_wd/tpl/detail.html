@@ -1,0 +1,95 @@
+<ion-side-menus>
+  <!-- 实现一个侧边栏菜单-->
+  <ion-side-menu class="positive-bg">
+    <button class="button-icon ion-close" menu-close="left"></button>
+    <ul class="list list-inset">
+      <li class="item"><a href="#">干果</a></li>
+      <li class="item"><a href="#">坚果</a></li>
+      <li class="item"><a href="#">热销：新疆大红枣</a></li>
+    </ul>
+  </ion-side-menu>
+
+  <ion-side-menu-content>
+    <div ng-include="'tpl/include/header.html'"></div>
+   <ion-content class="has-header has-footer">
+
+  <div class="card">
+    <div class="mainHead list">
+      <div class="item item-avatar">
+        <img ng-src="images/wd.jpg" alt="wd_logo"/>
+        <h3>微店买家版</h3>
+        <p>关注我店动态 上新打折不容错过~</p>
+      </div>
+    </div>
+    <div class="row wd_title">
+      <div class="col col-40">
+        <img ng-src="images/wd.jpg" alt="wd_2"/>
+      </div>
+      <div class="col col-offset-30">
+        <button class="button button-icon icon
+ion-ios-cart-outline" ng-click="jump('wdCart')"></button>
+        <i>|</i>
+        &nbsp;
+        <button ng-click="jump('wdMyOrder')" class="button button-royal button-clear">我的订单</button>
+      </div>
+    </div>
+
+    <div class="detail_item">
+      <img class="img-responsive"
+           ng-src="images/{{dish.img_lg}}" alt=""/>
+      <h3>{{dish.name}}</h3>
+      <p>{{dish.material}}</p>
+      <p>{{dish.price | currency:'￥'}}</p>
+      <button class="button button-assertive button-small">包邮</button>
+      <button ng-click="showActionSheet()" class="share button button-balanced button-small">点我分享</button>
+    </div>
+
+  </div>
+  <div class="dz_introduct list">
+    <div class="item item-avatar">
+      <img ng-src="images/tx.jpg" alt="wd_logo"/>
+      <h3>Jay二呆子铺</h3>
+      <ion-icon class="ion-ios-heart"></ion-icon>
+      <ion-icon class="ion-ios-heart"></ion-icon>
+      <ion-icon class="ion-ios-heart"></ion-icon>
+      <p>全店满99.00包邮</p>
+    </div>
+  </div>
+  <div>
+    <button ng-click="openLeft()"
+      class="button  button-royal button-outline icon-left ion-ios-list-outline">
+      商品分类
+    </button>
+    <button ng-click="jump('wdMain')"
+      class="button button-positive button-outline icon-left ion-bag">
+      进入店铺
+    </button>
+  </div>
+</ion-content>
+    </ion-side-menu-content>
+</ion-side-menus>
+
+<!--页尾-->
+<ion-tabs class="tabs-icon-top">
+  <ion-tab
+    ng-click="jump('wdMain')"
+    icon-on="ion-ios-list"
+    icon-off="ion-ios-list-outline"
+    title="主页">
+  </ion-tab>
+  <ion-tab
+    icon-on="ion-ios-heart"
+    icon-off="ion-ios-heart-outline"
+    title="收藏">
+  </ion-tab>
+  <ion-tab
+    ng-click="addToCart()"
+    icon-on="ion-ios-cart"
+    icon-off="ion-ios-cart-outline"
+    title="加入购物车">
+  </ion-tab>
+  <ion-tab
+    ng-click="jump('wdIntroduce')"
+    icon="ion-bag"
+    title="微店介绍">
+  </ion-tab>

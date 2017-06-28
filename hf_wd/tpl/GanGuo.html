@@ -1,0 +1,52 @@
+
+<ion-header-bar align-title="left" class="bar-dark list">
+  <li ng-click="jump('wdStart')" class="title item-icon-left ion-chevron-left">
+      干果
+  </li>
+  <button ng-click="showActionSheet()" class="button button-icon icon ion-android-more-vertical"></button>
+</ion-header-bar>
+
+<ion-content>
+  <div class="mainHead list">
+    <div class="item item-avatar">
+      <img ng-src="images/wd.jpg" alt="wd_logo"/>
+      <h3>微店买家版</h3>
+      <p>收藏本店并在app付款<br/>有机会立减50元！</p>
+    </div>
+  </div>
+  <div class="row"
+       ng-if="$index %2 === 0"
+       ng-repeat="dish in dishList">
+    <div class="col">
+      <img ng-src="images/{{dish.img_sm}}" alt=""/>
+      <p>{{dish.name}}</p>
+      <p>{{dish.price}}</p>
+    </div>
+    <!-- 第二列-->
+    <div class="col">
+      <img ng-src="images/{{dishList[$index+1].img_sm}}" alt=""/>
+      <p>{{dishList[$index+1].name}}</p>
+      <p>{{dishList[$index+1].price}}</p>
+    </div>
+  <!--第二行接着---？-->
+</div>
+
+</ion-content>
+页尾
+<ion-tabs class="tabs-icon-top">
+  <ion-tab icon="ion-arrow-up-a" ng-click="goToTop()"  title="返回TOP">
+  </ion-tab>
+
+  <ion-tab
+    ng-click="jump('wdCart')"
+    icon-on="ion-ios-cart"
+    icon-off="ion-ios-cart-outline"
+    title="购物车">
+  </ion-tab>
+  <ion-tab
+    ng-click="jump('wdSetting')"
+    icon-on="ion-ios-gear"
+    icon-off="ion-ios-gear-outline"
+    title="设置">
+  </ion-tab>
+</ion-tabs>
